@@ -356,6 +356,22 @@ class Model
     }
 
     /**
+     * 获取查询构造器
+     * @return SelectWrapper
+     */
+    public function getSelectWrapper(): SelectWrapper{
+        return $this->selectWrapper;
+    }
+
+    /**
+     * 获取更新构造器
+     * @return UpdateWrapper
+     */
+    public function getUpdateWrapper(): UpdateWrapper{
+        return $this->updateWrapper;
+    }
+    
+    /**
      * 选择要查询的字段名
      * @param mixed $column 可以是字符串，多个字段用,分开，也可以是数组每个元素为一个字段，也可以是*
      * @return self
