@@ -58,6 +58,11 @@ class Pdo
     public function getDsn($p)
     {
         $this->engine = $p['engine'] ?? $this->engine;
+
+        if($this->engine === "pgsql"){
+            return $this->engine . ':dbname=' . $p['database'] . ';host=' . $p['host'] . ';port=' . ($p['port'] ?? '5866');
+        }
+
         return $this->engine . ':dbname=' . $p['database'] . ';host=' . $p['host'] . ';charset=' . ($p['charset'] ?? 'utf8');
     }
 
